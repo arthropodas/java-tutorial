@@ -1,24 +1,35 @@
 
-class Calc {
-    int num = 100 ;
-    public Object display(int num) {
-        System.err.println("out"+num);
-        if(1!=1){
-        
-        return "something";
-        }
-        else{
-             return 0; 
-        }
+enum Laptop {
+    ChromeBook(5000),
+    MacBook(7000),
+    ThinkPad;
+
+    private int price;
+
+    private Laptop() {
+        price = 500;
     }
 
+    private Laptop(int price) {
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
 
 public class Demo {
 
     public static void main(String[] args) {
-        Calc c = new Calc();
-        System.err.println("The object is"+ c);
-        System.err.println("c.display();" + c.display(4));
+
+        for (Laptop lap : Laptop.values()) {
+            System.out.println(lap + " " + lap.getPrice());
+        }
+
     }
 }
